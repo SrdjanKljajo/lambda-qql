@@ -47,4 +47,4 @@ resources:
         DemoBucketUpload:
             Type: AWS::S3::Bucket
             Properties:
-                BucketName: srkica-23-srdjan
+                BucketName: srki-23-srkica
