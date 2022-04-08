@@ -16,12 +16,6 @@ const resolvers = {
 
 const server = new ApolloServer({
   typeDefs, resolvers,
-  context: ({ event, context }) => ({
-      headers: event.headers,
-      graphqlHandler: context.graphqlHandler,
-      event,
-      context,
-  }),
   playground: {
       endpoint: '/dev/graphql',
   },
