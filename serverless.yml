@@ -9,10 +9,14 @@ provider:
 plugins:
   - serverless-offline
   - serverless-webpack
+  - serverless-s3-sync
 
 custom:
   serverless-offline:
     allowCache: true
+
+  s3Sync:
+    - bucketName: srkikljajo23 
       
   webpack:
     webpackConfig: 'webpack.config.js'
