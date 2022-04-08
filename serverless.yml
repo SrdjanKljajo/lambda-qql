@@ -1,4 +1,4 @@
-service: lambda-qraphql-wpack
+service: lambda-qraphql-wpck
 
 provider:
   name: aws
@@ -7,20 +7,20 @@ provider:
 
 plugins:
   - serverless-offline
-  #- serverless-webpack
+  - serverless-webpack
 
 custom:
   serverless-offline:
     allowCache: true
 
-  #webpack:
-    #webpackConfig: "webpack.config.js" # Name of webpack configuration file
-    #includeModules: false # Node modules configuration for packaging
-    #packager: "npm" # Packager that will be used to package your external modules
-    #excludeFiles: src/**/*.test.js # Provide a glob for files to ignore
+  webpack:
+    webpackConfig: "webpack.config.js" # Name of webpack configuration file
+    includeModules: false # Node modules configuration for packaging
+    packager: "npm" # Packager that will be used to package your external modules
+    excludeFiles: src/**/*.test.js # Provide a glob for files to ignore
 
-#package:
-  #individually: true
+package:
+  individually: true
 
 functions:
   graphql:
@@ -28,9 +28,11 @@ functions:
     events:
       - http:
           path: graphql
-          method: POST
+          method: post
           cors: true
-      - http:
-          path: graphql
-          method: GET
-          cors: true
+    playground:
+      handler: lambdas/graphql.graphqlHandler
+      events:
+        - http:
+            path: playground
+            method: get
