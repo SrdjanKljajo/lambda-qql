@@ -1,4 +1,4 @@
-service: serverless-webpack-qql
+service: serverless-webpack-graphql
 
 provider:
     name: aws
