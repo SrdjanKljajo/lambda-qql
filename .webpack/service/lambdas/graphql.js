@@ -15,7 +15,7 @@
   \****************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("const { ApolloServer, gql } = __webpack_require__(/*! apollo-server-lambda */ \"apollo-server-lambda\");\n\n// Construct a schema, using GraphQL schema language\nconst typeDefs = gql`\n  type Query {\n    hello: String\n  }\n`;\n\n// Provide resolver functions for your schema fields\nconst resolvers = {\n  Query: {\n    hello: () => 'Hello world!',\n  },\n};\n\nconst server = new ApolloServer({\n  typeDefs,\n  resolvers,\n  statusCode: 200,\n          headers: { 'Content-Type': 'application/json' },\n\n});\n\nexports.graphqlHandler = server.createHandler();\n\n//# sourceURL=webpack://serverless/./lambdas/graphql.js?");
+eval("const {\n  ApolloServer,\n  gql\n} = __webpack_require__(/*! apollo-server-lambda */ \"apollo-server-lambda\"); // Construct a schema, using GraphQL schema language\n\n\nconst typeDefs = gql`\n  type Query {\n    hello: String\n  }\n`; // Provide resolver functions for your schema fields\n\nconst resolvers = {\n  Query: {\n    hello: () => 'Hello world!'\n  }\n};\nconst server = new ApolloServer({\n  typeDefs,\n  resolvers\n});\nexports.graphqlHandler = server.createHandler();\n\n//# sourceURL=webpack://serverless/./lambdas/graphql.js?");
 
 /***/ }),
 
@@ -62,9 +62,7 @@ module.exports = require("apollo-server-lambda");
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = __webpack_require__("./lambdas/graphql.js");
-/******/ 	var __webpack_export_target__ = exports;
-/******/ 	for(var i in __webpack_exports__) __webpack_export_target__[i] = __webpack_exports__[i];
-/******/ 	if(__webpack_exports__.__esModule) Object.defineProperty(__webpack_export_target__, "__esModule", { value: true });
+/******/ 	module.exports = __webpack_exports__;
 /******/ 	
 /******/ })()
 ;

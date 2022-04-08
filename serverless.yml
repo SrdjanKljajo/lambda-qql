@@ -1,4 +1,4 @@
-service: lambda-qraphql-wpck
+service: lambda-qraphql-wpack
 
 provider:
   name: aws
@@ -28,11 +28,9 @@ functions:
     events:
       - http:
           path: graphql
-          method: post
+          method: POST
           cors: true
-    playground:
-      handler: lambdas/graphql.graphqlHandler
-      events:
-        - http:
-            path: playground
-            method: get
+      - http:
+          path: graphql
+          method: GET
+          cors: true      
