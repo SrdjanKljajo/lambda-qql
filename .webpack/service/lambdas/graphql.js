@@ -1,14 +1,18 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	var __webpack_modules__ = ([
-/* 0 */,
-/* 1 */
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "apollo-server-lambda":
+/*!***************************************!*\
+  !*** external "apollo-server-lambda" ***!
+  \***************************************/
 /***/ ((module) => {
 
 "use strict";
 module.exports = require("apollo-server-lambda");
 
 /***/ })
-/******/ 	]);
+
+/******/ 	});
 /************************************************************************/
 /******/ 	// The module cache
 /******/ 	var __webpack_module_cache__ = {};
@@ -39,29 +43,46 @@ var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
 var exports = __webpack_exports__;
-const { ApolloServer, gql } = __webpack_require__(1);
+/*!****************************!*\
+  !*** ./lambdas/graphql.js ***!
+  \****************************/
+const {
+  ApolloServer,
+  gql
+} = __webpack_require__(/*! apollo-server-lambda */ "apollo-server-lambda"); // Construct a schema, using GraphQL schema language
 
-// Construct a schema, using GraphQL schema language
+
 const typeDefs = gql`
   type Query {
     hello: String
   }
-`;
+`; // Provide resolver functions for your schema fields
 
-// Provide resolver functions for your schema fields
 const resolvers = {
   Query: {
-    hello: () => 'Hello world!',
-  },
+    hello: () => 'Hello world!'
+  }
 };
-
-const server = new ApolloServer({ typeDefs, resolvers, playground: true, introspection: true})
-
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: ({
+    event,
+    context
+  }) => ({
+    headers: event.headers,
+    functionName: context.functionName,
+    event,
+    context
+  }),
+  playground: {
+    endpoint: '/dev/graphql'
+  }
+});
 exports.graphqlHandler = server.createHandler();
 })();
 
-var __webpack_export_target__ = exports;
-for(var i in __webpack_exports__) __webpack_export_target__[i] = __webpack_exports__[i];
-if(__webpack_exports__.__esModule) Object.defineProperty(__webpack_export_target__, "__esModule", { value: true });
+module.exports = __webpack_exports__;
 /******/ })()
 ;
+//# sourceMappingURL=graphql.js.map

@@ -1,4 +1,4 @@
-service: lambda-qraphql-23
+service: lambda-qraphql-serverless
 
 provider:
     name: aws
@@ -30,14 +30,17 @@ functions:
         path: graphql
         method: POST
         cors: true
+        integration: lambda-proxy
     - http:
         path: graphql
         method: GET
         cors: true
+        integration: lambda-proxy
     - http:
         path: playground
         method: ANY
         cors: true
+        integration: lambda-proxy
 
 resources:
     Resources:
