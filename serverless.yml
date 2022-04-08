@@ -8,14 +8,11 @@ provider:
 plugins:
   - serverless-offline
   - serverless-webpack
-  - serverless-s3-sync
 
 custom:
   serverless-offline:
     allowCache: true
-  s3Sync:
-    - bucketName: srdjan23
-      localDir: UploadData
+
   webpack:
     webpackConfig: 'webpack.config.js' # Name of webpack configuration file
     includeModules: false # Node modules configuration for packaging
@@ -27,7 +24,6 @@ package:
 
 functions:
   graphql:
-    # this is formatted as <FILENAME>.<HANDLER>
     handler: lambdas/graphql.graphqlHandler
     events:
     - http:
@@ -38,14 +34,10 @@ functions:
         path: graphql
         method: GET
         cors: true
-    - http:
-        path: playground
-        method: ANY
-        cors: true
 
 resources:
     Resources:
         DemoBucketUpload:
             Type: AWS::S3::Bucket
             Properties:
-                BucketName: srdjan23
+                BucketName: srdjan233
