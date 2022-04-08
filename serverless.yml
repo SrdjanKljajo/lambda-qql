@@ -8,10 +8,14 @@ provider:
 plugins:
   - serverless-offline
   - serverless-webpack
+  - serverless-s3-sync
 
 custom:
   serverless-offline:
     allowCache: true
+  s3Sync:
+    - bucketName: srdjan23
+      localDir: UploadData
   webpack:
     webpackConfig: 'webpack.config.js' # Name of webpack configuration file
     includeModules: false # Node modules configuration for packaging
@@ -44,4 +48,4 @@ resources:
         DemoBucketUpload:
             Type: AWS::S3::Bucket
             Properties:
-                BucketName: srdjan-23-srdjan
+                BucketName: srdjan23
