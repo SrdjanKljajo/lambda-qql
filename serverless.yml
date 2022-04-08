@@ -34,10 +34,3 @@ functions:
           path: graphql
           method: GET
           cors: true
-
-resources:
-  Resources:
-    DemoBucketUpload:
-      Type: AWS::S3::Bucket
-      Properties:
-        BucketName: srdjankljajo
