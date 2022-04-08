@@ -15,7 +15,7 @@
   \****************************/
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
-eval("const { ApolloServer, gql } = __webpack_require__(/*! apollo-server-lambda */ \"apollo-server-lambda\");\n\n// Construct a schema, using GraphQL schema language\nconst typeDefs = gql`\n  type Query {\n    hello: String\n  }\n`;\n\n// Provide resolver functions for your schema fields\nconst resolvers = {\n  Query: {\n    hello: () => 'Hello world!',\n  },\n};\n\nconst server = new ApolloServer({\n  typeDefs,\n  resolvers,\n  statusCode: 200,\n    body: JSON.stringify(),\n});\n\nexports.graphqlHandler = server.createHandler();\n\n//# sourceURL=webpack://serverless/./lambdas/graphql.js?");
+eval("const { ApolloServer, gql } = __webpack_require__(/*! apollo-server-lambda */ \"apollo-server-lambda\");\n\n// Construct a schema, using GraphQL schema language\nconst typeDefs = gql`\n  type Query {\n    hello: String\n  }\n`;\n\n// Provide resolver functions for your schema fields\nconst resolvers = {\n  Query: {\n    hello: () => 'Hello world!',\n  },\n};\n\nconst server = new ApolloServer({\n  typeDefs,\n  resolvers,\n  statusCode: 200,\n          headers: { 'Content-Type': 'application/json' },\n\n});\n\nexports.graphqlHandler = server.createHandler();\n\n//# sourceURL=webpack://serverless/./lambdas/graphql.js?");
 
 /***/ }),
 

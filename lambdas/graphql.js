@@ -18,7 +18,8 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   statusCode: 200,
-  body: JSON.stringify(),
+  headers: { 'Content-Type': 'application/json' },
+
 });
 
 exports.graphqlHandler = server.createHandler();
