@@ -1,4 +1,4 @@
-service: lambda-qraphql-serverless
+service: serverless-webpack-qql
 
 provider:
     name: aws
@@ -8,22 +8,26 @@ provider:
 plugins:
   - serverless-offline
   - serverless-webpack
+  - serverless-s3-sync
 
 custom:
   serverless-offline:
     allowCache: true
+
+  s3Sync:
+    - bucketName: srkikljajo23 
+      
   webpack:
-    webpackConfig: 'webpack.config.js' # Name of webpack configuration file
-    includeModules: false # Node modules configuration for packaging
-    packager: 'npm' # Packager that will be used to package your external modules
-    excludeFiles: src/**/*.test.js # Provide a glob for files to ignore
+    webpackConfig: 'webpack.config.js'
+    includeModules: false
+    packager: 'npm'
+    excludeFiles: src/**/*.test.js 
 
 package:
     individually: true
 
 functions:
   graphql:
-    # this is formatted as <FILENAME>.<HANDLER>
     handler: lambdas/graphql.graphqlHandler
     events:
     - http:
@@ -47,4 +51,4 @@ resources:
         DemoBucketUpload:
             Type: AWS::S3::Bucket
             Properties:
-                BucketName: srki-23-srkica
+                BucketName: srkikljajo23

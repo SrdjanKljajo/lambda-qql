@@ -71,7 +71,7 @@ const server = new ApolloServer({
     context
   }) => ({
     headers: event.headers,
-    functionName: context.functionName,
+    graphqlHandler: context.graphqlHandler,
     event,
     context
   }),
