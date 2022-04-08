@@ -4,6 +4,7 @@ provider:
     name: aws
     runtime: nodejs14.x
     region: us-east-1
+    memorySize: 256
 
 plugins:
   - serverless-offline
@@ -34,17 +35,14 @@ functions:
         path: graphql
         method: POST
         cors: true
-        integration: lambda-proxy
     - http:
         path: graphql
         method: GET
         cors: true
-        integration: lambda-proxy
     - http:
         path: playground
         method: ANY
         cors: true
-        integration: lambda-proxy
 
 resources:
     Resources:
