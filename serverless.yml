@@ -1,4 +1,4 @@
-service: lambda-qraphql-wpack
+service: lambda-qraphql-wbck
 
 provider:
   name: aws
