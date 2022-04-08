@@ -28,4 +28,4 @@ const server = new ApolloServer({
   plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
 });
 
-exports.handler = server.createHandler();
+exports.graphqlHandler = server.createHandler();
