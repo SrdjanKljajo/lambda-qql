@@ -1,9 +1,9 @@
-service: lambda-qraphql-webpack
+service: lambda-qraphql-wp
 
 provider:
-    name: aws
-    runtime: nodejs14.x
-    region: us-east-1
+  name: aws
+  runtime: nodejs14.x
+  region: us-east-1
 
 plugins:
   - serverless-offline
@@ -14,30 +14,30 @@ custom:
     allowCache: true
 
   webpack:
-    webpackConfig: 'webpack.config.js' # Name of webpack configuration file
+    webpackConfig: "webpack.config.js" # Name of webpack configuration file
     includeModules: false # Node modules configuration for packaging
-    packager: 'npm' # Packager that will be used to package your external modules
+    packager: "npm" # Packager that will be used to package your external modules
     excludeFiles: src/**/*.test.js # Provide a glob for files to ignore
 
 package:
-    individually: true
+  individually: true
 
 functions:
   graphql:
     handler: lambdas/graphql.graphqlHandler
     events:
-    - http:
-        path: graphql
-        method: POST
-        cors: true
-    - http:
-        path: graphql
-        method: GET
-        cors: true
+      - http:
+          path: graphql
+          method: POST
+          cors: true
+      - http:
+          path: graphql
+          method: GET
+          cors: true
 
 resources:
-    Resources:
-        DemoBucketUpload:
-            Type: AWS::S3::Bucket
-            Properties:
-                BucketName: srdjan233
+  Resources:
+    DemoBucketUpload:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: srdjankljajo
