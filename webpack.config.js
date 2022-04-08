@@ -1,4 +1,4 @@
-const slsw = require('serverless-webpack');
+/* const slsw = require('serverless-webpack');
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
@@ -6,4 +6,4 @@ module.exports = {
   externalsPresets: { node: true },
   mode: slsw.lib.webpack.isLocal ? 'development' : 'production',
   externals: [nodeExternals()]
-};
+}; */

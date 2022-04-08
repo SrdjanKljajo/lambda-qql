@@ -16,9 +16,7 @@ const resolvers = {
 
 const server = new ApolloServer({
   typeDefs,
-  resolvers,
-  statusCode: 200,
-  headers: { 'Content-Type': 'application/json' },
+  resolvers
 
 });
 
