@@ -1,8 +1,8 @@
-service: lambda-qraphql-wbck
+service: lambda-qraphql-srki
 
 provider:
   name: aws
-  runtime: nodejs14.x
+  runtime: nodejs12.x
   region: us-east-1
 
 plugins:
