@@ -7,21 +7,21 @@ provider:
 
 plugins:
   - serverless-offline
-  - serverless-webpack
+  #- serverless-webpack
 
 custom:
   serverless-offline:
     allowCache: true
 
-  webpack:
-    webpackConfig: "webpack.config.js"
-    includeModules: true
+  #webpack:
+    #webpackConfig: "webpack.config.js"
+    #includeModules: true
 
 package:
-  individually: true
+  #individually: true
   exclude:
     - "./node_modules/**"
-    - "./webpack.config.js"
+   # - "./webpack.config.js"
 
 functions:
   graphql:
@@ -29,5 +29,5 @@ functions:
     events:
       - http:
           path: graphql
-          method: ANY
+          method: POST
           cors: true    
