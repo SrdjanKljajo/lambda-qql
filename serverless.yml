@@ -18,6 +18,7 @@ custom:
     includeModules: true
 
 package:
+  individually: true
   exclude:
     - "./ node_modules/**"
     - "./webpack.config.js"
