@@ -15,7 +15,7 @@ custom:
 
   webpack:
     webpackConfig: "webpack.config.js"
-    includeModules: false
+    includeModules: true
 
 package:
   individually: true
