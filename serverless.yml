@@ -1,4 +1,4 @@
-service: lambda-qraphql-srki
+service: lambda-qraphql-srkica
 
 provider:
   name: aws
@@ -29,9 +29,5 @@ functions:
     events:
       - http:
           path: graphql
-          method: POST
-          cors: true
-      - http:
-          path: graphql
-          method: GET
-          cors: true      
+          method: ANY
+          cors: true    
