@@ -2,7 +2,7 @@ service: lambda-qraphql-srki
 
 provider:
   name: aws
-  runtime: nodejs12.x
+  runtime: nodejs14.x
   region: us-east-1
 
 plugins:
@@ -15,12 +15,14 @@ custom:
 
   webpack:
     webpackConfig: "webpack.config.js" # Name of webpack configuration file
-    includeModules: false # Node modules configuration for packaging
+    includeModules: true # Node modules configuration for packaging
     packager: "npm" # Packager that will be used to package your external modules
     excludeFiles: src/**/*.test.js # Provide a glob for files to ignore
 
 package:
-  individually: true
+  exclude:
+    - "./ node_modules/**"
+    - "./webpack.config.js"
 
 functions:
   graphql:
