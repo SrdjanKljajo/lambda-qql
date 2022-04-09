@@ -1,25 +1,46 @@
-const nodeExternals = require('webpack-node-externals');
-const serverlessWebpack = require('serverless-webpack');
+const { join } = require(`path`)
+// https://github.com/serverless-heaven/serverless-webpack
+const slsw = require(`serverless-webpack`)
+// https://github.com/liady/webpack-node-externals
+const nodeExternals = require(`webpack-node-externals`)
 
 module.exports = {
-  entry: serverlessWebpack.lib.entries,
-  mode: serverlessWebpack.lib.webpack.isLocal ? 'development' : 'production',
+  mode: slsw.lib.webpack.isLocal ? `development` : `production`,
+  entry: slsw.lib.entries,
+  target: `node`,
+  externals: [nodeExternals()],
+  devtool: `nosources-source-map`,
+  output: {
+    libraryTarget: `commonjs`,
+    path: join(__dirname, `.webpack`),
+    filename: `[name].js`,
+    sourceMapFilename: `[file].map`
+  },
+  stats: {
+    colors: true,
+    reasons: false,
+    chunks: false
+  },
+  performance: {
+    hints: false
+  },
+  optimization: {
+    minimize: false
+  },
   module: {
     rules: [
       {
-        exclude: /node_modules/,
         test: /\.js$/,
-        loader: 'babel-loader',
+        loader: `babel-loader`,
+        exclude: /node_modules/,
+        options: {
+          cacheDirectory: true
+        }
       },
-    ],
-  },
-  node: false,
-  externals: [nodeExternals()],
-  optimization: {
-    minimize: false,
-  },
-  resolve: {
-    extensions: ['.js'],
-  },
-  target: 'node',
-};
+      {
+        test: /\.(graphql|gql)$/,
+        exclude: /node_modules/
+      }
+    ]
+  }
+}
