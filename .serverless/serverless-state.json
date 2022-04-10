@@ -1,8 +1,8 @@
 {
   "service": {
-    "service": "lambda-qraphql-23",
+    "service": "lambda-qraphql-srkica23-srki",
     "serviceObject": {
-      "name": "lambda-qraphql-23"
+      "name": "lambda-qraphql-srkica23-srki"
     },
     "provider": {
       "name": "aws",
@@ -86,7 +86,7 @@
           "GraphqlLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/lambda-qraphql-23-dev-graphql"
+              "LogGroupName": "/aws/lambda/lambda-qraphql-srkica23-srki-dev-graphql"
             }
           },
           "IamRoleLambdaExecution": {
@@ -114,7 +114,7 @@
                     "Fn::Join": [
                       "-",
                       [
-                        "lambda-qraphql-23",
+                        "lambda-qraphql-srkica23-srki",
                         "dev",
                         "lambda"
                       ]
@@ -131,7 +131,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/lambda-qraphql-23-dev*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/lambda-qraphql-srkica23-srki-dev*:*"
                           }
                         ]
                       },
@@ -142,7 +142,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/lambda-qraphql-23-dev*:*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/lambda-qraphql-srkica23-srki-dev*:*:*"
                           }
                         ]
                       }
@@ -155,7 +155,7 @@
                 "Fn::Join": [
                   "-",
                   [
-                    "lambda-qraphql-23",
+                    "lambda-qraphql-srkica23-srki",
                     "dev",
                     {
                       "Ref": "AWS::Region"
@@ -173,11 +173,11 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/lambda-qraphql-23/dev/1649351867659-2022-04-07T17:17:47.659Z/graphql.zip"
+                "S3Key": "serverless/lambda-qraphql-srkica23-srki/dev/1649599667880-2022-04-10T14:07:47.880Z/graphql.zip"
               },
               "Handler": "lambdas/graphql.graphqlHandler",
               "Runtime": "nodejs14.x",
-              "FunctionName": "lambda-qraphql-23-dev-graphql",
+              "FunctionName": "lambda-qraphql-srkica23-srki-dev-graphql",
               "MemorySize": 1024,
               "Timeout": 6,
               "Role": {
@@ -191,20 +191,20 @@
               "GraphqlLogGroup"
             ]
           },
-          "GraphqlLambdaVersionsqnqgFyI9XLYc08kZijEg5F2GP6HSaz3QMqUE0": {
+          "GraphqlLambdaVersionG1v3tT946ozJyh9jUfOl10TO6ZBxxFFTJjcY86pF7Jk": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GraphqlLambdaFunction"
               },
-              "CodeSha256": "c/hcatIw69Wics8gmKH+HtdphVveVKoS+32Hf+Lsz+M="
+              "CodeSha256": "nt8CkZP8vavMNDlZh5IPcDV232bTZJDKAWGa65Htq00="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "dev-lambda-qraphql-23",
+              "Name": "dev-lambda-qraphql-srkica23-srki",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -228,67 +228,7 @@
               }
             }
           },
-          "ApiGatewayResourcePlayground": {
-            "Type": "AWS::ApiGateway::Resource",
-            "Properties": {
-              "ParentId": {
-                "Fn::GetAtt": [
-                  "ApiGatewayRestApi",
-                  "RootResourceId"
-                ]
-              },
-              "PathPart": "playground",
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              }
-            }
-          },
           "ApiGatewayMethodGraphqlOptions": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "AuthorizationType": "NONE",
-              "HttpMethod": "OPTIONS",
-              "MethodResponses": [
-                {
-                  "StatusCode": "200",
-                  "ResponseParameters": {
-                    "method.response.header.Access-Control-Allow-Origin": true,
-                    "method.response.header.Access-Control-Allow-Headers": true,
-                    "method.response.header.Access-Control-Allow-Methods": true
-                  },
-                  "ResponseModels": {}
-                }
-              ],
-              "RequestParameters": {},
-              "Integration": {
-                "Type": "MOCK",
-                "RequestTemplates": {
-                  "application/json": "{statusCode:200}"
-                },
-                "ContentHandling": "CONVERT_TO_TEXT",
-                "IntegrationResponses": [
-                  {
-                    "StatusCode": "200",
-                    "ResponseParameters": {
-                      "method.response.header.Access-Control-Allow-Origin": "'*'",
-                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent'",
-                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET,POST'"
-                    },
-                    "ResponseTemplates": {
-                      "application/json": ""
-                    }
-                  }
-                ]
-              },
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceGraphql"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              }
-            }
-          },
-          "ApiGatewayMethodPlaygroundOptions": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
               "AuthorizationType": "NONE",
@@ -326,112 +266,20 @@
                 ]
               },
               "ResourceId": {
-                "Ref": "ApiGatewayResourcePlayground"
+                "Ref": "ApiGatewayResourceGraphql"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
             }
           },
-          "ApiGatewayMethodGraphqlPost": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "POST",
-              "RequestParameters": {},
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceGraphql"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "ApiKeyRequired": false,
-              "AuthorizationType": "NONE",
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "GraphqlLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            },
-            "DependsOn": [
-              "GraphqlLambdaPermissionApiGateway"
-            ]
-          },
-          "ApiGatewayMethodGraphqlGet": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "GET",
-              "RequestParameters": {},
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceGraphql"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "ApiKeyRequired": false,
-              "AuthorizationType": "NONE",
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "GraphqlLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            },
-            "DependsOn": [
-              "GraphqlLambdaPermissionApiGateway"
-            ]
-          },
-          "ApiGatewayMethodPlaygroundAny": {
+          "ApiGatewayMethodGraphqlAny": {
             "Type": "AWS::ApiGateway::Method",
             "Properties": {
               "HttpMethod": "ANY",
               "RequestParameters": {},
               "ResourceId": {
-                "Ref": "ApiGatewayResourcePlayground"
+                "Ref": "ApiGatewayResourceGraphql"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -471,7 +319,7 @@
               "GraphqlLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1649351867058": {
+          "ApiGatewayDeployment1649599663812": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -481,10 +329,7 @@
             },
             "DependsOn": [
               "ApiGatewayMethodGraphqlOptions",
-              "ApiGatewayMethodPlaygroundOptions",
-              "ApiGatewayMethodGraphqlPost",
-              "ApiGatewayMethodGraphqlGet",
-              "ApiGatewayMethodPlaygroundAny"
+              "ApiGatewayMethodGraphqlAny"
             ]
           },
           "GraphqlLambdaPermissionApiGateway": {
@@ -523,12 +368,6 @@
                 ]
               }
             }
-          },
-          "DemoBucketUpload": {
-            "Type": "AWS::S3::Bucket",
-            "Properties": {
-              "BucketName": "srkica-23-srdjan"
-            }
           }
         },
         "Outputs": {
@@ -537,16 +376,16 @@
               "Ref": "ServerlessDeploymentBucket"
             },
             "Export": {
-              "Name": "sls-lambda-qraphql-23-dev-ServerlessDeploymentBucketName"
+              "Name": "sls-lambda-qraphql-srkica23-srki-dev-ServerlessDeploymentBucketName"
             }
           },
           "GraphqlLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GraphqlLambdaVersionsqnqgFyI9XLYc08kZijEg5F2GP6HSaz3QMqUE0"
+              "Ref": "GraphqlLambdaVersionG1v3tT946ozJyh9jUfOl10TO6ZBxxFFTJjcY86pF7Jk"
             },
             "Export": {
-              "Name": "sls-lambda-qraphql-23-dev-GraphqlLambdaFunctionQualifiedArn"
+              "Name": "sls-lambda-qraphql-srkica23-srki-dev-GraphqlLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -572,7 +411,7 @@
               ]
             },
             "Export": {
-              "Name": "sls-lambda-qraphql-23-dev-ServiceEndpoint"
+              "Name": "sls-lambda-qraphql-srkica23-srki-dev-ServiceEndpoint"
             }
           }
         }
@@ -667,9 +506,7 @@
       },
       "webpack": {
         "webpackConfig": "webpack.config.js",
-        "includeModules": false,
-        "packager": "npm",
-        "excludeFiles": "src/**/*.test.js"
+        "includeModules": true
       }
     },
     "plugins": [
@@ -684,52 +521,6 @@
           {
             "http": {
               "path": "graphql",
-              "method": "post",
-              "cors": {
-                "origin": "*",
-                "methods": [
-                  "OPTIONS",
-                  "POST"
-                ],
-                "headers": [
-                  "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent"
-                ],
-                "allowCredentials": false
-              },
-              "integration": "AWS_PROXY"
-            }
-          },
-          {
-            "http": {
-              "path": "graphql",
-              "method": "get",
-              "cors": {
-                "origin": "*",
-                "methods": [
-                  "OPTIONS",
-                  "GET"
-                ],
-                "headers": [
-                  "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent"
-                ],
-                "allowCredentials": false
-              },
-              "integration": "AWS_PROXY"
-            }
-          },
-          {
-            "http": {
-              "path": "playground",
               "method": "any",
               "cors": {
                 "origin": "*",
@@ -751,7 +542,7 @@
             }
           }
         ],
-        "name": "lambda-qraphql-23-dev-graphql",
+        "name": "lambda-qraphql-srkica23-srki-dev-graphql",
         "package": {
           "artifact": ".serverless/graphql.zip"
         },
@@ -759,24 +550,13 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "GraphqlLambdaVersionsqnqgFyI9XLYc08kZijEg5F2GP6HSaz3QMqUE0"
+        "versionLogicalId": "GraphqlLambdaVersionG1v3tT946ozJyh9jUfOl10TO6ZBxxFFTJjcY86pF7Jk"
       }
-    },
-    "resources": {
-      "Resources": {
-        "DemoBucketUpload": {
-          "Type": "AWS::S3::Bucket",
-          "Properties": {
-            "BucketName": "srkica-23-srdjan"
-          }
-        }
-      },
-      "Outputs": {}
     },
     "configValidationMode": "warn",
     "serviceFilename": "serverless.yml",
     "initialServerlessConfig": {
-      "service": "lambda-qraphql-23",
+      "service": "lambda-qraphql-srkica23-srki",
       "provider": {
         "$ref": "$[\"service\"][\"provider\"]"
       },
@@ -788,14 +568,15 @@
       },
       "package": {
         "individually": true,
-        "artifactsS3KeyDirname": "serverless/lambda-qraphql-23/dev/code-artifacts",
-        "artifactDirectoryName": "serverless/lambda-qraphql-23/dev/1649351867659-2022-04-07T17:17:47.659Z"
+        "exclude": [
+          "./node_modules/**",
+          "./webpack.config.js"
+        ],
+        "artifactsS3KeyDirname": "serverless/lambda-qraphql-srkica23-srki/dev/code-artifacts",
+        "artifactDirectoryName": "serverless/lambda-qraphql-srkica23-srki/dev/1649599667880-2022-04-10T14:07:47.880Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
-      },
-      "resources": {
-        "$ref": "$[\"service\"][\"resources\"]"
       }
     },
     "layers": {},
@@ -803,7 +584,7 @@
   },
   "package": {
     "individually": true,
-    "artifactDirectoryName": "serverless/lambda-qraphql-23/dev/1649351867659-2022-04-07T17:17:47.659Z",
+    "artifactDirectoryName": "serverless/lambda-qraphql-srkica23-srki/dev/1649599667880-2022-04-10T14:07:47.880Z",
     "artifact": ""
   }
 }
