@@ -1,4 +1,4 @@
-service: lambda-qraphql-srkica23-srki
+service: lambda-qraphql-srkica232323
 
 provider:
   name: aws
@@ -17,11 +17,13 @@ custom:
     webpackConfig: "webpack.config.js"
     includeModules: true
 
+
 package:
   individually: true
   exclude:
     - "./node_modules/**"
     - "./webpack.config.js"
+
 
 functions:
   graphql:
