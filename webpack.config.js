@@ -1,4 +1,4 @@
-/* const { join } = require(`path`)
+const { join } = require(`path`)
 const slsw = require(`serverless-webpack`)
 const nodeExternals = require(`webpack-node-externals`)
 
@@ -35,4 +35,4 @@ module.exports = {
       }
     ]
   }
-}   */
+}  

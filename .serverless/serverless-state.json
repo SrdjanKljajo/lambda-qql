@@ -1,8 +1,8 @@
 {
   "service": {
-    "service": "lambda-qraphql-srkica23-srki",
+    "service": "lambda-qraphql-srkica232323",
     "serviceObject": {
-      "name": "lambda-qraphql-srkica23-srki"
+      "name": "lambda-qraphql-srkica232323"
     },
     "provider": {
       "name": "aws",
@@ -86,7 +86,7 @@
           "GraphqlLogGroup": {
             "Type": "AWS::Logs::LogGroup",
             "Properties": {
-              "LogGroupName": "/aws/lambda/lambda-qraphql-srkica23-srki-dev-graphql"
+              "LogGroupName": "/aws/lambda/lambda-qraphql-srkica232323-dev-graphql"
             }
           },
           "IamRoleLambdaExecution": {
@@ -114,7 +114,7 @@
                     "Fn::Join": [
                       "-",
                       [
-                        "lambda-qraphql-srkica23-srki",
+                        "lambda-qraphql-srkica232323",
                         "dev",
                         "lambda"
                       ]
@@ -131,7 +131,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/lambda-qraphql-srkica23-srki-dev*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/lambda-qraphql-srkica232323-dev*:*"
                           }
                         ]
                       },
@@ -142,7 +142,7 @@
                         ],
                         "Resource": [
                           {
-                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/lambda-qraphql-srkica23-srki-dev*:*:*"
+                            "Fn::Sub": "arn:${AWS::Partition}:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/lambda-qraphql-srkica232323-dev*:*:*"
                           }
                         ]
                       }
@@ -155,7 +155,7 @@
                 "Fn::Join": [
                   "-",
                   [
-                    "lambda-qraphql-srkica23-srki",
+                    "lambda-qraphql-srkica232323",
                     "dev",
                     {
                       "Ref": "AWS::Region"
@@ -173,11 +173,11 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/lambda-qraphql-srkica23-srki/dev/1649599667880-2022-04-10T14:07:47.880Z/graphql.zip"
+                "S3Key": "serverless/lambda-qraphql-srkica232323/dev/1649691471186-2022-04-11T15:37:51.186Z/graphql.zip"
               },
               "Handler": "lambdas/graphql.graphqlHandler",
               "Runtime": "nodejs14.x",
-              "FunctionName": "lambda-qraphql-srkica23-srki-dev-graphql",
+              "FunctionName": "lambda-qraphql-srkica232323-dev-graphql",
               "MemorySize": 1024,
               "Timeout": 6,
               "Role": {
@@ -191,20 +191,20 @@
               "GraphqlLogGroup"
             ]
           },
-          "GraphqlLambdaVersionG1v3tT946ozJyh9jUfOl10TO6ZBxxFFTJjcY86pF7Jk": {
+          "GraphqlLambdaVersionGO21WwQc4O6StYp6ueGVcNmriBa0lWQ2pVuGEKKgF2Y": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "GraphqlLambdaFunction"
               },
-              "CodeSha256": "nt8CkZP8vavMNDlZh5IPcDV232bTZJDKAWGa65Htq00="
+              "CodeSha256": "ghLd+4HGOA7qSVa3uEvRAy29+gWWOzqePfncLCZqerk="
             }
           },
           "ApiGatewayRestApi": {
             "Type": "AWS::ApiGateway::RestApi",
             "Properties": {
-              "Name": "dev-lambda-qraphql-srkica23-srki",
+              "Name": "dev-lambda-qraphql-srkica232323",
               "EndpointConfiguration": {
                 "Types": [
                   "EDGE"
@@ -319,7 +319,7 @@
               "GraphqlLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1649599663812": {
+          "ApiGatewayDeployment1649691467057": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -376,16 +376,16 @@
               "Ref": "ServerlessDeploymentBucket"
             },
             "Export": {
-              "Name": "sls-lambda-qraphql-srkica23-srki-dev-ServerlessDeploymentBucketName"
+              "Name": "sls-lambda-qraphql-srkica232323-dev-ServerlessDeploymentBucketName"
             }
           },
           "GraphqlLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "GraphqlLambdaVersionG1v3tT946ozJyh9jUfOl10TO6ZBxxFFTJjcY86pF7Jk"
+              "Ref": "GraphqlLambdaVersionGO21WwQc4O6StYp6ueGVcNmriBa0lWQ2pVuGEKKgF2Y"
             },
             "Export": {
-              "Name": "sls-lambda-qraphql-srkica23-srki-dev-GraphqlLambdaFunctionQualifiedArn"
+              "Name": "sls-lambda-qraphql-srkica232323-dev-GraphqlLambdaFunctionQualifiedArn"
             }
           },
           "ServiceEndpoint": {
@@ -411,7 +411,7 @@
               ]
             },
             "Export": {
-              "Name": "sls-lambda-qraphql-srkica23-srki-dev-ServiceEndpoint"
+              "Name": "sls-lambda-qraphql-srkica232323-dev-ServiceEndpoint"
             }
           }
         }
@@ -542,7 +542,7 @@
             }
           }
         ],
-        "name": "lambda-qraphql-srkica23-srki-dev-graphql",
+        "name": "lambda-qraphql-srkica232323-dev-graphql",
         "package": {
           "artifact": ".serverless/graphql.zip"
         },
@@ -550,13 +550,13 @@
         "timeout": 6,
         "runtime": "nodejs14.x",
         "vpc": {},
-        "versionLogicalId": "GraphqlLambdaVersionG1v3tT946ozJyh9jUfOl10TO6ZBxxFFTJjcY86pF7Jk"
+        "versionLogicalId": "GraphqlLambdaVersionGO21WwQc4O6StYp6ueGVcNmriBa0lWQ2pVuGEKKgF2Y"
       }
     },
     "configValidationMode": "warn",
     "serviceFilename": "serverless.yml",
     "initialServerlessConfig": {
-      "service": "lambda-qraphql-srkica23-srki",
+      "service": "lambda-qraphql-srkica232323",
       "provider": {
         "$ref": "$[\"service\"][\"provider\"]"
       },
@@ -572,8 +572,8 @@
           "./node_modules/**",
           "./webpack.config.js"
         ],
-        "artifactsS3KeyDirname": "serverless/lambda-qraphql-srkica23-srki/dev/code-artifacts",
-        "artifactDirectoryName": "serverless/lambda-qraphql-srkica23-srki/dev/1649599667880-2022-04-10T14:07:47.880Z"
+        "artifactsS3KeyDirname": "serverless/lambda-qraphql-srkica232323/dev/code-artifacts",
+        "artifactDirectoryName": "serverless/lambda-qraphql-srkica232323/dev/1649691471186-2022-04-11T15:37:51.186Z"
       },
       "functions": {
         "$ref": "$[\"service\"][\"functions\"]"
@@ -584,7 +584,7 @@
   },
   "package": {
     "individually": true,
-    "artifactDirectoryName": "serverless/lambda-qraphql-srkica23-srki/dev/1649599667880-2022-04-10T14:07:47.880Z",
+    "artifactDirectoryName": "serverless/lambda-qraphql-srkica232323/dev/1649691471186-2022-04-11T15:37:51.186Z",
     "artifact": ""
   }
 }
