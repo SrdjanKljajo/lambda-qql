@@ -15,12 +15,12 @@ custom:
 
   #webpack:
     #webpackConfig: "webpack.config.js"
-    i#ncludeModules: true
+    #includeModules: true
 
-package:
+#package:
   #individually: true
-  exclude:
-    - "./node_modules/**"
+  #exclude:
+    #- "./node_modules/**"
     #- "./webpack.config.js"
 
 functions:
