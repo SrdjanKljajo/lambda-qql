@@ -1,4 +1,4 @@
-service: lambda-qraphql-srkica232323
+service: lambda-qraphql-srkiiicaa
 
 provider:
   name: aws
@@ -16,7 +16,6 @@ custom:
   webpack:
     webpackConfig: "webpack.config.js"
     includeModules: true
-
 
 package:
   individually: true
