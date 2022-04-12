@@ -9,7 +9,7 @@ module.exports = {
   externals: [nodeExternals()],
   devtool: `nosources-source-map`,
   output: {
-    libraryTarget: `commonjs`,
+    libraryTarget: `commonjs2`,
     path: join(__dirname, `.webpack`),
     filename: `[name].js`,
     sourceMapFilename: `[file].map`

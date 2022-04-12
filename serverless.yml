@@ -1,4 +1,4 @@
-service: lambda-qraphql-srkiiicaa
+service: lambda-serverless-webpack
 
 provider:
   name: aws
@@ -10,19 +10,14 @@ plugins:
   - serverless-webpack
 
 custom:
-  serverless-offline:
-    allowCache: true
-
   webpack:
     webpackConfig: "webpack.config.js"
     includeModules: true
 
 package:
-  individually: true
   exclude:
     - "./node_modules/**"
     - "./webpack.config.js"
-
 
 functions:
   graphql:
