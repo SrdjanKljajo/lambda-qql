@@ -1,6 +1,7 @@
 const resolvers = {
     Query: {
       hello: () => 'Hello world!',
+      zdravo: () => 23,
     },
   };
 
