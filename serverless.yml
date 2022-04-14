@@ -1,4 +1,4 @@
-service: lambda-serverless-webpack-resize
+service: lambda-serverless-back
 
 provider:
   name: aws
