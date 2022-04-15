@@ -51,7 +51,7 @@ const resolvers = {
           role,
           password: await bcrypt.hash(password, 10)
         })
-        /* const token = jsonwebtoken.sign(
+         const token = jsonwebtoken.sign(
           {
             id: user.id,
             username: user.username,
@@ -60,9 +60,9 @@ const resolvers = {
           },
           process.env.JWT_SECRET,
           { expiresIn: '1y' } 
-        ) */
+        ) 
         return {
-          //token,
+          token,
           user,
           message: 'Authentication succesfull'
         }
@@ -81,7 +81,7 @@ const resolvers = {
           throw new Error('Incorrect password')
         }
         // return jwt
-        /* const token = jsonwebtoken.sign(
+        const token = jsonwebtoken.sign(
           {
             id: user.id,
             username: user.username,
@@ -90,10 +90,10 @@ const resolvers = {
           },
           process.env.JWT_SECRET,
           { expiresIn: '100d' }
-        ) */
+        ) 
 
         return {
-          //token,
+          token,
           user
         }
       } catch (error) {
