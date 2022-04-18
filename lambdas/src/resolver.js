@@ -1,6 +1,7 @@
 const bcrypt = require('bcryptjs')
 const jsonwebtoken = require('jsonwebtoken')
 const models = require('../../models')
+//const {smartTrim} = require('../../utils/smartTrim')
 //const checkPermissions = require('../validateRole')
 require('dotenv').config()
 
@@ -129,9 +130,10 @@ const resolvers = {
     async createArticle(root, { title, body }, { user }) {
       try {
         return models.Article.create({
-          userId: user.id,
+          userId: 1,
           title,
-          body
+          body,
+          message: 'Article created succesfull'
         })
       } catch (error) {
         throw new Error(error.message)
