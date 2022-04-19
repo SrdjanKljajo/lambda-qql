@@ -7,19 +7,15 @@ provider:
 
 plugins:
   - serverless-offline
-  - serverless-webpack
 
 custom:
-  webpack:
-    webpackConfig: "webpack.config.js"
-    includeModules: true
+  serverless-offline:
+    httpPort: 4000
 
 package:
-  individually: true
   exclude:
     - "./node_modules/**"
-    - "./webpack.config.js"
-
+  
 functions:
   graphql:
     handler: lambdas/graphql.graphqlHandler
